@@ -1,0 +1,65 @@
+html,
+body,
+#root,
+.App {
+  background-color: #ffffff;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+ 
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 450px;
+  margin: 20px;
+  
+}
+
+.film img {
+  width: 200px;
+  height: 300px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.back {
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 2px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 14px 40px;
+  width: 1080px;
+  height: 800px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  padding: 50px;
+  margin: 50px;
+}
+
+.card img {
+  align-self: center;
+  border-radius: 10px;
+  width: 500px;
+}
