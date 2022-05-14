@@ -1,3 +1,20 @@
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import Detail from './views/Detail';
+import List from './views/List';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Switch>
+        <Route path="/film/:id">
+          <Detail/>
+        </Route>
+        <Route exact path="/">
+          <Header/>
+          <List/>
+        </Route>
+      </Switch>
+    </>
+  );
 }
