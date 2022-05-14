@@ -1,4 +1,4 @@
-export async function ghibliFilmsFetch() {
+export async function ghibliApiFetch() {
   const res = await fetch('https://ghibliapi.herokuapp.com/films');
   const data = await res.json();
 

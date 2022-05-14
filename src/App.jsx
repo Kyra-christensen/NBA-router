@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <Switch>
-        <Route path="/film/:id">
+        <Route path="/films/:id">
           <Detail/>
         </Route>
         <Route exact path="/">

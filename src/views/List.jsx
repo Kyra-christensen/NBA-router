@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import { ghibliFilmsFetch } from '../services/ghibliApi-fetch';
+import { ghibliApiFetch } from '../services/ghibliApiFetch';
 import styles from '../App.css';
 
-export default function FilmList() {
+export default function List() {
   const [loading, setLoading] = useState(true);
   const [films, setFilms] = useState([]);
   const location = useLocation();
@@ -16,11 +16,13 @@ export default function FilmList() {
   const filmList = isSearching ? results : films;
 
   // search/filter functionality
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-    history.push(`/?search=${event.target.value}`);
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    history.push(`/?search=${e.target.value}`);
+    
     const searchResults = films.filter((item) => {
       return item.title.toLowerCase().includes(search.toLowerCase().trim());
+      
     });
     setResults(searchResults);
     setIsSearching(true); //if search.length is truthy
@@ -30,7 +32,7 @@ export default function FilmList() {
   useEffect(() => {
     setLoading(true);
     const getFilmData = async () => {
-      const filmData = await ghibliFilmsFetch();
+      const filmData = await ghibliApiFetch();
       setFilms(filmData);
       setLoading(false);
     };
@@ -41,7 +43,7 @@ export default function FilmList() {
   useEffect(() => {
     setLoading(true);
     const getFilmData = async () => {
-      const filmData = await ghibliFilmsFetch();
+      const filmData = await ghibliApiFetch();
       setFilms(filmData);
       setLoading(false);
       if (!search) {
@@ -57,7 +59,7 @@ export default function FilmList() {
         <p>Loading Films...</p>
       ) : (
         <>
-          <div className={styles.search}>
+          <div >
             <input
               id="search"
               type="textbox"
